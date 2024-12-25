@@ -8,11 +8,8 @@
     <link rel="stylesheet" href="css/newstyle.css">
     <title>Pls leave a review</title>
     <style>
-        form div{
-            margin-bottom: 10px;
-        }
-
-        .rowForm{
+        form div { margin-bottom: 10px; }
+        .rowForm {
             max-width: 400px;
             padding: 20px;
             background-color: #f3f3f3;
@@ -22,122 +19,108 @@
         }
     </style>
 </head>
-<script>
-    // Function to call when a smaller screen
-    function myFunction(){
-        var x=document.getElementById("myTopNav");
-        if(x.className==="topnav"){
-            x.className+=" responsive";
-        }
-        else{
-            x.className="topnav";
-        }
-    }
-
-    // Check menu navigation active, upon page load
-    document.addEventListener("DOMContentLoaded", function(){
-        const navLinks = document.querySelectorAll(".topnav a");
-        const currentPath = window.location.pathname;
-
-        navLinks.forEach(link => link.classList.remove("active"));
-        navLinks.forEach(link => {
-            const linkPath = new URL(link.href).pathname;
-            if(linkPath===currentPath){
-                link.classList.add("active");
-            }
-        })
-    })
-</script>
 <body>
     <header>
-        <!-- <h1>Review</h1> -->
-         <img src="img/banner.png" alt="banner image" class="image">
+        <img src="img/banner.png" alt="banner image" class="image">
     </header>
     <nav class="topnav" id="myTopNav">
         <a href="index.html">Home</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="blog.html">Blog</a>
-        <a href="review.html">Review</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a></a>
+        <a href="review.html" class="active">Review</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
     </nav>
 
     <main>
-        <div>
-            <h2 style="text-align: center;">Drop your review here</h2>
-            <div class="rowForm">
-                <form action="" method="post" name="reviewform">
-                    <div>
-                        <label for="email">Email : </label>
-                        <input type="email" name="email" id="email" required>
-                    </div>
-                    <div>
-                        <label for="orderDate">Order date : </label>
-                        <input type="date" name="orderDate" id="orderDate">
-                    </div>
-                    <div>
-                        <label for="foodType">Food type : </label>
-                        <input type="checkbox" name="foodtype" value="breakfast">Breakfast
-                        <input type="checkbox" name="foodtype" value="lunch">Lunch
-                        <input type="checkbox" name="foodtype" value="dinner">Dinner
-                    </div>
-                    <div>
-                        <label for="orderType">Order type : </label>
-                        <input type="radio" name="ordertype" id="ordertype" value="takeaway" checked>Takeaway
-                        <input type="radio" name="ordertype" id="ordertype" value="dineIn">Dine in
-                    </div>
-                    <div>
-                        <label for="branch">Branch : </label>
-                        <select>
-                            <option value="">- Please Select -</option>
-                            <option value="KK">Kota Kinabalu</option>
-                            <option value="Sandakan">Sandakan</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="review">Review</label><br>
-                        <textarea name="review" id="review" cols="40" rows="4"></textarea>
-                    </div>
-                    <div>
-                        <label for="rating">Rating (1-5): </label>
-                        <input type="range" name="rating" id="rating" min="1" max="5">
-                    </div>
-    
-                    <input type="button" name="submit" id="submit" value="Submit">
-                    <input type="button" name="reset" id="reset" value="Reset">
-                </form>
-            </div>
+        <h2 style="text-align: center;">Drop your review here</h2>
+        <div class="rowForm">
+            <form name="reviewform">
+                <div>
+                    <label for="email">Email : </label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="orderDate">Order date : </label>
+                    <input type="date" name="orderDate" id="orderDate">
+                </div>
+                <div>
+                    <label for="foodType">Food type : </label>
+                    <input type="checkbox" name="foodtype" value="breakfast">Breakfast
+                    <input type="checkbox" name="foodtype" value="lunch">Lunch
+                    <input type="checkbox" name="foodtype" value="dinner">Dinner
+                </div>
+                <div>
+                    <label for="orderType">Order type : </label>
+                    <input type="radio" name="ordertype" value="takeaway" checked>Takeaway
+                    <input type="radio" name="ordertype" value="dineIn">Dine in
+                </div>
+                <div>
+                    <label for="branch">Branch : </label>
+                    <select name="branch">
+                        <option value="">- Please Select -</option>
+                        <option value="KK">Kota Kinabalu</option>
+                        <option value="Sandakan">Sandakan</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="review">Review</label><br>
+                    <textarea name="review" id="review" cols="40" rows="4"></textarea>
+                </div>
+                <div>
+                    <label for="rating">Rating (1-5): </label>
+                    <input type="range" name="rating" id="rating" min="1" max="5">
+                </div>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+            <p id="output" style="color: red;"></p>
         </div>
     </main>
+
     <footer>
         <p><i><small>Copyright &copy; 2024 Helmi</small></i></p>
     </footer>
-</body>
-<script>
-    document.addEventListener("DOMContentLoaded", function(){
-        document.forms["reviewform"].onSubmit=function(event){
-            event.preventDefault(); //Prevent form submission
 
-            let isValid=true;
-            email=document.getElementById("email").value;
-            orderDate=document.getElementById("orderDate").value;
-            foodTypes=document.getElementById("foodType");
-
-            //Check at least one food selected
-            let foodTypeChecked=false;
-            for(let i=0; i<foodTypes.length; i++){
-                if(foodTypes[i].checked){
-                    foodTypeChecked=true;
-                    break;
-                }
-            }
-            if(!foodTypeChecked){
-                alert("Select at least one food type (Breakfast/Lunch/Dinner).");
-                isValid=false;
-            }
-            if(isValid){
-                document.getElementById("output").innerText=`*Thank you ${email} for your review order ${orderDate}`;
-            }
+    <script>
+        function myFunction() {
+            const nav = document.getElementById("myTopNav");
+            nav.classList.toggle("responsive");
         }
-    })
-</script>
+
+        document.forms["reviewform"].onsubmit = function (event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const orderDate = document.getElementById("orderDate").value;
+            const foodTypes = [...document.getElementsByName("foodtype")].filter(ft => ft.checked).map(ft => ft.value);
+            const orderType = document.querySelector('input[name="ordertype"]:checked')?.value || '';
+            const branch = document.querySelector('select[name="branch"]').value;
+            const review = document.getElementById("review").value;
+            const rating = document.getElementById("rating").value;
+
+            let errors = [];
+            if (!foodTypes.length) errors.push("Please select at least one food type.");
+            if (!email) errors.push("Please enter your email.");
+            if (!orderDate) errors.push("Please select an order date.");
+            if (!branch) errors.push("Please select a branch.");
+            if (!/^[a-zA-Z\s.]+$/.test(review)) errors.push("Review can only contain alphabets, spaces, and periods.");
+
+            if (errors.length) {
+                alert(errors.join("\n"));
+                return;
+            }
+
+            const formattedDate = orderDate.split("-").reverse().join("-");
+            document.getElementById("output").innerHTML = `
+                <strong>Thank you for your review!</strong><br>
+                <strong>Email:</strong> ${email}<br>
+                <strong>Order Date:</strong> ${formattedDate}<br>
+                <strong>Food Types:</strong> ${foodTypes.join(", ")}<br>
+                <strong>Order Type:</strong> ${orderType}<br>
+                <strong>Branch:</strong> ${branch}<br>
+                <strong>Review:</strong> ${review}<br>
+                <strong>Rating:</strong> ${rating}
+            `;
+        };
+    </script>
+</body>
 </html>
