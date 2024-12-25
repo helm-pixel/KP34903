@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pls leave a review</title>
+    <style>
+        form div{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Review</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home    |</a>
+        <a href="portfolio.html">Portfolio  |</a>
+        <a href="blog.html">Blog    |</a>
+        <a href="review.html">Review</a>
+    </nav>
+
+    <main>
+        <div>
+            <h2>Drop your review here</h2>
+            <form action="" method="post" name="reviewform">
+                <div>
+                    <label for="email">Email : </label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="orderDate">Order date : </label>
+                    <input type="date" name="orderDate" id="orderDate">
+                </div>
+                <div>
+                    <label for="foodType">Food type : </label>
+                    <input type="checkbox" name="foodtype" value="breakfast">Breakfast
+                    <input type="checkbox" name="foodtype" value="lunch">Lunch
+                    <input type="checkbox" name="foodtype" value="dinner">Dinner
+                </div>
+                <div>
+                    <label for="orderType">Order type : </label>
+                    <input type="radio" name="ordertype" id="ordertype" value="takeaway">Takeaway
+                    <input type="radio" name="ordertype" id="ordertype" value="dineIn">Dine in
+                </div>
+                <div>
+                    <label for="branch">Branch : </label>
+                    <select>
+                        <option value="">- Please Select -</option>
+                        <option value="KK">Kota Kinabalu</option>
+                        <option value="Sandakan">Sandakan</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="review">Review</label><br>
+                    <textarea name="review" id="review" cols="40" rows="4"></textarea>
+                </div>
+                <div>
+                    <label for="rating">Rating (1-5): </label>
+                    <input type="range" name="rating" id="rating" min="1" max="5">
+                </div>
+
+                <input type="button" name="submit" id="submit" value="Submit">
+                <input type="button" name="reset" id="reset" value="Reset">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p><i><small>Copyright &copy; 2024 Helmi</small></i></p>
+    </footer>
+</body>
+</html>

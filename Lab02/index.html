@@ -3,47 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/newstyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+        #aboutMeTable{
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: left;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        footer{
+            background-color: #f1f1f1;
+            text-align: center;
+            /* padding: 10px; */
+        }
+    </style>
     <title>Lab1 website</title>
 </head>
 <body>
     <header>
-        <h1>HOME</h1>
+        <!-- <h1>HOME</h1> -->
+         <img src="img/banner.png" alt="banner image" class="image">
     </header>
-    <nav>
-        <a href="index.html">Home    |</a>
-        <a href="portfolio.html">Portfolio  |</a>
-        <a href="blog.html">Blog    |</a>
+    <nav class="topnav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
         <a href="review.html">Review</a>
     </nav>
 
     <main>
-        <div>
-            <img src="../img/profile.jpg" alt="Helmi encem" style="height: 300px; border-radius: 5px;">
-        </div>
-        <div>
-            <h2>About Me</h2>
-            <table border="1" width="100%">
-                <tr>
-					<td width="150">Name</td>
-					<td>&nbsp;Mohamad Helmi Mohamad Sayono</td>
-				</tr>
-				<tr>
-					<td width="150">Matric No.</td>
-					<td>&nbsp;BI22110105</td>
-				</tr>
-				<tr>
-					<td width="150">Email</td>
-					<td>&nbsp;mohamad_helmi_bi22@iluv.ums.edu.my</td>
-				</tr>
-            </table>
-        </div>
-        <div>
-			<h2>My Daily Quote</h2>
-			<table  width = "100%">
-				<tr>
-					<td>Join me in my foodie journey...</td>
-				</tr>
-			</table>
+        <div class="row">
+            <div class="col-left">
+                <img src="img/profile.jpg" alt="Helmi encem" style="height: 300px; border-radius: 5px;">
+            </div>
+            <div class="col-right">
+                <div class="aboutMe">
+                    <h2>About Me</h2>
+                    <table border="1" width="100%" id="aboutMeTable">
+                        <tr>
+                            <td width="150">Name</td>
+                            <td>&nbsp;Mohamad Helmi Mohamad Sayono</td>
+                        </tr>
+                        <tr>
+                            <td width="150">Matric No.</td>
+                            <td>&nbsp;BI22110105</td>
+                        </tr>
+                        <tr>
+                            <td width="150">Email</td>
+                            <td>&nbsp;mohamad_helmi_bi22@iluv.ums.edu.my</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="dailyQuote">
+                    <h2>My Daily Quote</h2>
+                    <table  width = "100%">
+                        <tr>
+                            <td>Join me in my foodie journey...</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </main>
     <footer>
