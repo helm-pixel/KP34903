@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/newstyle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         #aboutMeTable{
             max-width: 800px;
@@ -16,27 +17,50 @@
             border-radius: 8px;
             border: 1px solid #ddd;
         }
-
+        
         footer{
             background-color: #f1f1f1;
             text-align: center;
             /* padding: 10px; */
         }
     </style>
-    <title>Lab2 website</title>
+    <title>Lab4 website</title>
 </head>
+<script>
+    // Function to call when a smaller screen
+    function myFunction(){
+        var x=document.getElementById("myTopNav");
+        if(x.className==="topnav"){
+            x.className+=" responsive";
+        }
+        else{
+            x.className="topnav";
+        }
+    }
+
+    // Check menu navigation active, upon page load
+    document.addEventListener("DOMContentLoaded", function(){
+        const navLinks = document.querySelectorAll(".topnav a");
+        const currentPath = window.location.pathname;
+
+        navLinks.forEach(link => link.classList.remove("active"));
+
+        navLinks.forEach(link => {
+            const linkPath = new URL(link.href).pathname;
+            if(linkPath===currentPath){
+                link.classList.add("active");
+            }
+        })
+    })
+</script>
 <body>
     <header>
         <!-- <h1>HOME</h1> -->
          <img src="img/banner.png" alt="banner image" class="image">
     </header>
-    <nav class="topnav">
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="blog.html">Blog</a>
-        <a href="review.html">Review</a>
-    </nav>
-
+    <?php
+    include("include/topNav.php")
+    ?>
     <main>
         <div class="row">
             <div class="col-left">
