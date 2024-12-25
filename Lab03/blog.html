@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+        #blogTable{
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: left;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        #blogTable:hover{
+            background-color: #C8B4BA;
+        }
+    </style>
+    <title>My Blog</title>
+</head>
+<body>
+    <header>
+        <h1>Blog</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home    |</a>
+        <a href="portfolio.html">Portfolio  |</a>
+        <a href="blog.html">Blog    |</a>
+        <a href="review.html">Review</a>
+    </nav>
+
+    <main>
+        <p>Search Blog <input type="text" name="blogSearch" id="blogSearch"></p>
+
+        <table border="1" width="100%" id="blogTable">
+            <tr>
+                <th style="background-color: #e0e0e0; text-align: center;" colspan="3">Category 1</th>
+            </tr>
+            <tr>
+                <td>Article</td>
+                <td>Article</td>
+                <td>Video</td>
+            </tr>
+            <tr>
+                <th style="background-color: #e0e0e0; text-align: center;" colspan="3">Category 2</th>
+            </tr>
+            <tr>
+                <td>Video</td>
+                <td>Article</td>
+                <td>Article</td>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>
